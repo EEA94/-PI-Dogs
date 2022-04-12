@@ -1,0 +1,55 @@
+.landing{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    padding:20px;
+    animation: infinite;
+    animation-name: rotate;
+    animation-duration: 16s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes rotate {
+    0% {min-height: 100vh;
+        background: url(../assets/dogred.png) no-repeat center center fixed;
+        background-size: cover;}
+    40% {min-height: 100vh;
+        background: url(../assets/dogblue.jpg)no-repeat center center fixed;
+        background-size: cover;}
+    65% {min-height: 100vh;
+        background: url(../assets/dogorange.jpg)no-repeat center center fixed;
+        background-size: cover;}
+    100% {min-height: 100vh;
+        background: url(../assets/doggrey.jpg)no-repeat center center fixed;
+        background-size: cover;}
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 670px;
+}
+.title{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 70px;
+color: rgb(66, 63, 61);
+}
+.subtitle{
+font-family: 'Arial Narrow', Arial, sans-serif;
+font-size: 25px;
+color: rgb(66, 63, 61);
+margin-top: -20px;
+}
+
+.landBtn {
+    font-size: 18px;
+    border: none;
+    margin: 20px;
+    background-color:burlywood;
+    width: 85px;
+    height: 45px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #999;
+}
+.landBtn:hover{
+    background-color: rgb(151, 59, 5);
+    color: antiquewhite;
+}

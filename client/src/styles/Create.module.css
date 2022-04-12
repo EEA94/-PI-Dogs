@@ -1,0 +1,124 @@
+.dogsHenry{
+    display: flex;
+    align-items: center;
+    height: 85px;
+    text-decoration: none;
+}
+.logoHome{
+    width:70px;
+    height: 60px;
+}
+.henry{
+font-size: 70px;
+max-height: 100%;
+font-family:fantasy;
+margin-left: 20px;
+color: gold;
+text-shadow: 3px 3px 8px #999;
+border: 20px;
+}
+.create{
+    min-height: 100vh;
+    background:url('../assets/fondoClaro.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    padding-top: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+.subCreate{
+width: 1100px;
+background-color: rgba(241, 215, 181, 0.876);
+display: flex;
+justify-content:flex-start;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-top: 20px;
+border-radius: 10px;
+box-shadow: 0 0 15px rgb(47, 35, 224);
+}
+.preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin-left: 20px;
+}
+.preview img {
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 0 0 15px #999;
+}
+.form{
+    width:850px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.form div{
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 10px;
+}
+.temperaments{
+    padding-top: -20px;
+}
+.form div input{
+    padding: 5px 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 200px;
+    height:18px;
+    border-radius: 5px;
+    border-color: grey;
+    border-style: hidden;
+    box-shadow: 0 0 5px #999;
+}
+.select{
+    width: 250px;
+    height:30px;
+    border-radius: 5px;
+    border-color: grey;
+    box-shadow: 0 0 5px #999;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.error{
+    color: red;
+}
+.containerDlt{
+    display: flex;
+    flex-direction: row;
+}
+.deleteBtn{
+    color: firebrick;
+    max-height: 100%;
+    font-size: x-large;
+    padding-right: 6px;
+    background-color: transparent;
+    border: none;
+}
+.deleteBtn:hover{
+font-size: xx-large;
+}
+.btnCreate{
+font-size: larger;
+width: 200px;
+height: 40px;
+border-radius: 10px;
+box-shadow: 0 0 15px #999;
+}
+.btnCreateOn{
+border:none;
+width: 200px;
+height: 40px;
+border-radius: 10px;
+background-color: rgb(74, 190, 74);
+box-shadow: 0 0 15px #999;
+font-size: larger;
+}
+.btnCreateOn:hover{
+box-shadow: 0 0 10px rgb(47, 35, 224);
+}

@@ -1,0 +1,13 @@
+.paginate{
+    display: flex;
+    flex-direction: column;
+}
+.cards{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.loading{
+    width: 200px;
+    height: 200px;
+}
