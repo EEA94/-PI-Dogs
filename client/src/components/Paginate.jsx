@@ -4,7 +4,6 @@ import PaginateFunction from "./PaginateFunction";
 import Card from "./Card";
 import styles from "../styles/Paginate.module.css";
 import { getDogs } from "../redux/actions";
-import loading from "../assets/loading.gif";
 
 export default function Paginate() {
   const dogs = useSelector((state) => state.allDogs);
