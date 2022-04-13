@@ -37,10 +37,16 @@ switch (action.type) {
     case 'FILTER_DB':
         const all_Dogs = state.dogs;
         const filteredDb = all_Dogs.filter(dog=> dog.createdInDb)
-        return {
+        if(filteredDb.length){
+          return {
             ...state,
             allDogs: filteredDb
         }
+        }
+        else{
+          alert("No dogs created")
+          break;
+        }  
     case 'FILTER_API':
         const allDogs2 = state.dogs;
         const filteredApi = allDogs2.filter(d=>!d.createdInDb)

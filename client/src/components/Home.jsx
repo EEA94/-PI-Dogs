@@ -24,11 +24,11 @@ export default function Home() {
       {dogs.length ? (
         <>
           <Link className={styles.dogsHenry} to={"/home"}>
-            <img className={styles.logoHome} src={logoHome} />
-            <h1 className={styles.henry}>DOGS HENRY</h1>
+            <img className={styles.logoHome} src={logoHome} alt="logo"/>
+            <h1 className={styles.henry}>HENRY'S DOGS</h1>
           </Link>
           <div className={styles.main}>
-            <div>
+            <div className={styles.filtersPanel}>
               <SearchBar />
               <Filters />
               <Link to={"/dog"}>
@@ -41,7 +41,7 @@ export default function Home() {
       ) : (
         <div className={styles.containerLoading}>
           <img className={styles.loading} src={loading} alt="loading..." />
-          <p>loading</p>
+          <p>loading...</p>
         </div>
       )}
     </div>

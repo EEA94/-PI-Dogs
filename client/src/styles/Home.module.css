@@ -27,6 +27,7 @@ border: 20px;
 }
 .main{
     display: flex;
+    align-self: flex-start;
 }
 .btn{
     width: 110px;
@@ -55,4 +56,8 @@ border: 20px;
     font-size: 30px;
     display: flex;
     justify-content: center;
+}
+.filtersPanel{
+    display: flex;
+    flex-direction: column;
 }

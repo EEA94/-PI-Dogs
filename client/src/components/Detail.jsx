@@ -17,8 +17,8 @@ useEffect(()=>{
 
     return (
         <div className={styles.detail}>
-            <Link className={styles.dogsHenry} to={'/home'}><img className={styles.logoHome} src={logoHome}/>
-             <h1 className={styles.henry}>DOGS HENRY</h1></Link>
+            <Link className={styles.dogsHenry} to={'/home'}><img className={styles.logoHome} src={logoHome} alt="logo"/>
+             <h1 className={styles.henry}>HENRY'S DOGS</h1></Link>
             <h2>Details</h2>
             {
                 detail.length>0 ? 
@@ -34,7 +34,7 @@ useEffect(()=>{
                     </div> :
                         <div className={styles.containerLoading}>
                         <img className={styles.loading} src={loading} alt="loading..." />
-                        <p>loading</p>
+                        <p>loading...</p>
                       </div>
             }
         </div>

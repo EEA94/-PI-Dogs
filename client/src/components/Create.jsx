@@ -7,9 +7,9 @@ import logoHome from "../assets/dogHome.png"
 import preview from "../assets/preview.png"
 
 const checkFieldsUndefined = (input)=>{
-    if(!input.temperament.length) return true;
+    if(input.temperament.length===0) return true;
     for(let el in input){
-        return input[el]===undefined;
+        return input[el]==="";
     }
 }
 const checkZero = (arr)=>{
@@ -33,12 +33,13 @@ return arr.filter(n=>n > limit).length
 const validate = (input)=>{
     const {name, image, height_min, height_max, weight_min, weight_max, life_span} = input;
     const numbers = [height_min, height_max, weight_min, weight_max, life_span];
-    const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
+    const regexUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/;
+    // /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i
     const regexName = /^[a-zA-Z ]+$/;
     const errors = {};
 
 if(checkFieldsUndefined(input)){
-    errors.incompleteFields = 'All fields are required'
+    errors.allFields = 'All fields are required'
 }
 if(checkZero(numbers)){
     errors.zero = 'Value must be greater than 0'
@@ -77,7 +78,7 @@ export default function Create(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const temps = useSelector((state)=>state.temps)
-    const [error, setError] = useState({allFields:'All fields are required'})
+    const [error, setError] = useState({})
     const [input, setInput] = useState({
         name: '',
         weight_min:'',
@@ -149,8 +150,8 @@ function handleDelete(e){
 
      return (
          <div className={styles.create}>
-             <Link className={styles.dogsHenry} to={'/home'}><img className={styles.logoHome} src={logoHome}/>
-             <h1 className={styles.henry}>DOGS HENRY</h1></Link>
+             <Link className={styles.dogsHenry} to={'/home'}><img className={styles.logoHome} src={logoHome} alt="logo"/>
+             <h1 className={styles.henry}>HENRY'S DOGS</h1></Link>
              <div className={styles.subCreate}>
                 <div className={styles.preview}>
                     <h2>Create your Dog</h2>
@@ -179,7 +180,7 @@ function handleDelete(e){
                      {error.heightLimit && <span className={styles.error}>{error.heightLimit}</span>}
                 </div>
                 <div>
-                    <label htmlFor="inputLife">Life_span: </label>
+                    <label htmlFor="inputLife">Life span: </label>
                     <input id="inputLife" type="number" value={input.life_span} name="life_span" placeholder="life expectancy..." onChange={(e)=>handleChange(e)}></input>
                     {error.life_span && <span className={styles.error}>{error.life_span}</span>}
                     {error.zero && <span className={styles.error}>{error.zero}</span>}
@@ -187,11 +188,12 @@ function handleDelete(e){
                     {error.isNan && <span className={styles.error}>{error.isNan}</span>}
                 </div>
                 <div>
-                    <label htmlFor="inputImage">Image: </label>
-                    <input id="inputImage" type="text" value={input.image} name="image" placeholder="image..." onChange={(e)=>handleChange(e)}></input>
+                    <label htmlFor="Image">Image: </label>
+                    <input id="Image" type="url" value={input.image} name="image" placeholder="image..." onChange={(e)=>handleChange(e)}></input>
                     {error.image && <span className={styles.error}>{error.image}</span>}
                 </div>
-                <select className={styles.select} onChange={(e)=>handleSelect(e)}>
+                <label htmlFor="Temps">Temperaments: </label>
+                <select id="Temps" className={styles.select} onChange={(e)=>handleSelect(e)}>
                     {!input.temperament.length ?
                     <option key='select' value="default">Select temperaments</option> :
                     <option key='select' disabled={true}>Select temperaments</option>
@@ -204,6 +206,7 @@ function handleDelete(e){
             })       
         }
         </select>
+        
         <div className={styles.temperaments}>
              {input.temperament.map(temp=>
                     (<div className={styles.containerDlt} key={temp}>
@@ -214,7 +217,9 @@ function handleDelete(e){
          </div>
          {Object.keys(error).length ?
          <button className={styles.btnCreate} type="submit" disabled={true}>Create</button>:
-         <button className={styles.btnCreateOn} type="submit">Create</button>}
+         <button className={styles.btnCreateOn} type="submit">Create</button>
+         }
+         {error.allFields && <span className={styles.error}>{error.allFields}</span>}
          </form>
          </div>
          </div>
