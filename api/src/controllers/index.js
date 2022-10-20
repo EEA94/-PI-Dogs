@@ -73,9 +73,10 @@ const allDogs = await getAllDogs();
         res.status(404).send("Id not found")
     }
 }
+
 module.exports = {
     dogs,
     dogId,
     dogPost,
-    temperament
+    temperament,
 }

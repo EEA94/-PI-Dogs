@@ -3,7 +3,6 @@ const initialState = {
     allDogs: [],
     temps:[],
     detail:[],
-    error: false,
 }
 
 export default function rootReducer(state = initialState, action){
@@ -23,7 +22,6 @@ switch (action.type) {
         return {
             ...state,
             allDogs: action.payload,
-            error: !state.error
         }
     case 'GET_ID_DETAIL':
         return {
@@ -34,8 +32,12 @@ switch (action.type) {
         return {
             ...state
         }
+    case 'DELETE_DOG':
+      return{
+        ...state
+      }
     case 'FILTER_DB':
-        const all_Dogs = state.dogs;
+        const all_Dogs = state.allDogs;
         const filteredDb = all_Dogs.filter(dog=> dog.createdInDb)
         if(filteredDb.length){
           return {
@@ -48,14 +50,14 @@ switch (action.type) {
           break;
         }  
     case 'FILTER_API':
-        const allDogs2 = state.dogs;
+        const allDogs2 = state.allDogs;
         const filteredApi = allDogs2.filter(d=>!d.createdInDb)
         return {
             ...state,
             allDogs: filteredApi
         }
     case 'FILTER_TEMP':
-      const filterDogs = state.dogs.filter((dog) =>
+      const filterDogs = state.allDogs.filter((dog) =>
         dog.temperament?.includes(action.payload)
       );
 
@@ -78,7 +80,6 @@ switch (action.type) {
     return {
         ...state,
         allDogs: orderName,
-        error: !state.error
     }
     case 'ORDER_WEIGHT':
         const orderWeight = state.dogs.sort((a, b) => {
@@ -91,13 +92,11 @@ switch (action.type) {
         return {
           ...state,
           allDogs: orderWeight,
-          error: !state.error
         };
       } else {
         return {
           ...state,
           allDogs: orderWeight.reverse(),
-          error: !state.error
         };
       }
     case 'ORDER_HEIGHT':
@@ -111,13 +110,11 @@ switch (action.type) {
         return {
           ...state,
           allDogs: orderHeight,
-          error: !state.error
         };
       } else {
         return {
           ...state,
           allDogs: orderHeight.reverse(),
-          error: !state.error
         };
       }
     case 'CLEAR':

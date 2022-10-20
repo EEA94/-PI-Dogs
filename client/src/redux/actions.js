@@ -19,12 +19,10 @@ export default function findDogs(name){
     return async function(dispatch){
         try {
             const dogs = await axios.get(`http://localhost:3001/dogs?name=${name}`)
-            console.log(dogs)
         return dispatch({type:'FIND_DOGS', payload:dogs.data})
         } catch (error) {
             console.log(error)
         }
-        
     }
 }
 

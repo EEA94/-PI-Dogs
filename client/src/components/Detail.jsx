@@ -8,7 +8,7 @@ import loading from "../assets/loading.gif"
 
 export default function Detail(){
 const dispatch = useDispatch();
-const {id} = useParams()
+const {id} = useParams();
 const detail = useSelector((state)=>state.detail);
 
 useEffect(()=>{

@@ -5,11 +5,10 @@ import Card from "./Card";
 import styles from "../styles/Paginate.module.css";
 import { getDogs } from "../redux/actions";
 
-export default function Paginate() {
+export default function Paginate({currentPage, setCurrentPage}) {
   const dogs = useSelector((state) => state.allDogs);
-  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1);
+ 
   const [cardsPerPage] = useState(8);
   const indexLastCard = currentPage * cardsPerPage;
   const indexFirstCard = indexLastCard - cardsPerPage;
@@ -19,9 +18,7 @@ export default function Paginate() {
     setCurrentPage(current);
   };
 
-  useEffect(() => {}, [error]);
-
-  function cleaner() {
+  function notFound() {
     dispatch(getDogs());
     alert("Dogs not found");
   }
@@ -36,7 +33,7 @@ export default function Paginate() {
       </div>
       <div className={styles.cards}>
         {currentCards[0] === "Dog not found"
-          ? cleaner()
+          ? notFound()
           : currentCards?.map((dog) => (
               <Card
                 image={dog.image}
