@@ -10,7 +10,7 @@ export function getDogs(){
 
 export function getTemps(){
     return async function(dispatch){
-        const temps = await axios.get(axios.defaults.baseURL+"temperament");
+        const temps = await axios.get(axios.defaults.baseURL+"/temperament");
         return dispatch({type:'GET_TEMPS',payload: temps.data})
     }
 }
