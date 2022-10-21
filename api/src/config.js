@@ -3,7 +3,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD || 'Elias1406'
 const DB_HOST = process.env.DB_HOST || 'localhost'
 const DB_NAME = process.env.DB_NAME || 'dogs'
 const DB_PORT = process.env.PORT || 5432
-const PORT_ACCESS = process.env.PORT_ACCESS || 3005
+const PORT_ACCESS = process.env.PORT_ACCESS || 3001
 
 const API_KEY = process.env.API_KEY
 
