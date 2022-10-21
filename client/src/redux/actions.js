@@ -1,16 +1,18 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 
 export function getDogs(){
     return async function(dispatch){
-        const allDogs = await axios.get(axios.defaults.baseURL+"/dogs");
+        const allDogs = await axios.get(`${axios.defaults.baseURL}/dogs`);
         return dispatch({type:'GET_DOGS', payload: allDogs.data})
     }
 }
 
 export function getTemps(){
     return async function(dispatch){
-        const temps = await axios.get(axios.defaults.baseURL+"/temperament");
+        const temps = await axios.get(`${axios.defaults.baseURL}/temperament`);
         return dispatch({type:'GET_TEMPS',payload: temps.data})
     }
 }
