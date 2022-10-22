@@ -1,3 +1,9 @@
+api/src/config.js
+
+api/node_modules
+
+client/node_modules
+
 # Logs
 logs
 *.log
@@ -38,7 +44,6 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -104,4 +109,5 @@ dist
 .tern-port
 
 # package-lock.json
-package-lock.json
+api/package-lock.json
+client/package-lock.json
