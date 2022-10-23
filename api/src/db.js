@@ -6,8 +6,8 @@ const {
   DB_USER,
   DB_PASSWORD,
   DB_HOST,
-  DB_PORT,
-  DB_NAME } = require('./config.js');
+  PORT,
+  DB_NAME } = process.env;
 
 // let sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
 //   logging: false, // set to console.log to see the raw SQL queries
@@ -20,7 +20,7 @@ let sequelize =
         database: DB_NAME,
         dialect: "postgres",
         host: DB_HOST,
-        port: 5432,
+        port: PORT,
         username: DB_USER,
         password: DB_PASSWORD,
         pool: {
@@ -39,7 +39,7 @@ let sequelize =
         ssl: true,
       })
     :
-    new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+    new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
