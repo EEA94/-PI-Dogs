@@ -44,6 +44,13 @@ let sequelize =
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
 
+try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
