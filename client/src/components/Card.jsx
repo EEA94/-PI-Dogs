@@ -10,11 +10,11 @@ return(
         <Link to={`/dogs/${id}`}>
         <img className={styles.cardImg} src={image} alt={name}/>
         </Link>
-        <div className={styles.info}>
+    </div>
+    <div className={styles.info}>
         <b className={styles.name}>{name}</b><br/>
         <b className={styles.titles}>Weight: </b><span>{weight} kg.</span><br/>
         <b className={styles.titles}>Temperament: </b><span>{temperament?.join(", ")}.</span>
-    </div>
     </div>
     
 </div>
