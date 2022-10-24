@@ -1,7 +1,4 @@
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
-
 
 export function getDogs(){
     return async function(dispatch){
