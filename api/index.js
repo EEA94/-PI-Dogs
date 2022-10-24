@@ -4,7 +4,7 @@ const { conn } = require('./src/db.js');
 
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   try {
     await conn.authenticate();
     console.log('Connection has been established successfully.');
